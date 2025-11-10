@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami
+  namespace: whoami
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - whoami.192.168.4.42.sslip.io
+      secretName: whoami-tls
+  rules:
+    - host: whoami.192.168.4.42.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: whoami
+                port:
+                  number: 80
