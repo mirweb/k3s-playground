@@ -7,3 +7,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Add repository guidelines in AGENTS.md.
+- Add Portainer sample manifests and usage guide.
+- Add Portainer RBAC and service account for cluster access.

@@ -1,5 +1,6 @@
 # K3S Samples
 
-## Sample app whoami
+## Sample apps
 
-See [whoami Readme](whoami/Readme.md)
+- [whoami](whoami/Readme.md)
+- [portainer](portainer/Readme.md)
