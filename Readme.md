@@ -4,3 +4,4 @@
 
 - [whoami](whoami/Readme.md)
 - [portainer](portainer/Readme.md)
+- [rancher](rancher/Readme.md)

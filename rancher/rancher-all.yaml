@@ -1,0 +1,39 @@
+# rancher-all.yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cattle-system
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: cert-manager
+  namespace: kube-system
+spec:
+  chart: cert-manager
+  repo: https://charts.jetstack.io
+  targetNamespace: cert-manager
+  valuesContent: |
+    installCRDs: true
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: rancher
+  namespace: kube-system
+spec:
+  chart: rancher
+  repo: https://releases.rancher.com/server-charts/latest
+  targetNamespace: cattle-system
+  valuesContent: |
+    hostname: rancher.192.168.4.42.sslip.io
+    replicas: 1
+    ingress:
+      tls:
+        source: rancher
