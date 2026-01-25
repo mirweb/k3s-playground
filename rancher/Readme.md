@@ -41,6 +41,12 @@ get bootstrap password
 kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{.data.bootstrapPassword|base64decode}}{{"\n"}}'
 ```
 
+reset admin password
+```
+POD=$(kubectl -n cattle-system get pods -l app=rancher -o jsonpath='{.items[0].metadata.name}')
+kubectl -n cattle-system exec -it "$POD" -- reset-password
+```
+
 open in browser
 ```
 https://rancher.192.168.4.42.sslip.io
