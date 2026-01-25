@@ -42,3 +42,4 @@ TLS examples use `mkcert` and local `.pem` files in `whoami/`. Do not commit rea
 ## Changelog policy
 - Maintain `CHANGELOG.md` following https://keepachangelog.com/en/1.0.0/.
 - Before every commit, verify `CHANGELOG.md` is updated to reflect the changes.
+- Create git commit messages following https://www.conventionalcommits.org/en/v1.0.0/
