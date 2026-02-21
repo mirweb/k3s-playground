@@ -68,10 +68,12 @@ restart deployment
 kubectl -n cattle-system rollout restart deployment/rancher
 ```
 
-update chart (delete and re-apply)
+update chart in-place (recommended)
 ```
-kubectl -n kube-system delete helmchart rancher
+# 1) bump spec.version in rancher-helmchart.yaml (and rancher-all.yaml if you use all-in-one)
+#    current pinned version: 2.13.2
 kubectl apply -f rancher-helmchart.yaml
+kubectl -n cattle-system rollout status deployment/rancher
 ```
 
 ## delete sample app

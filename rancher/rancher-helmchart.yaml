@@ -6,6 +6,7 @@ metadata:
 spec:
   chart: rancher
   repo: https://releases.rancher.com/server-charts/latest
+  version: 2.13.2
   targetNamespace: cattle-system
   valuesContent: |
     hostname: rancher.192.168.4.42.sslip.io
