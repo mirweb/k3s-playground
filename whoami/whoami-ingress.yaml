@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: whoami.192.168.4.42.sslip.io
+    - host: whoami.k8s.orb.local
       http:
         paths:
           - path: /

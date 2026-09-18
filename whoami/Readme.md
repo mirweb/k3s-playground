@@ -19,7 +19,7 @@ kubectl apply -f whoami-ingress.yaml
 
 check in console
 ```
-[0] % curl http://whoami.192.168.4.42.sslip.io
+[0] % curl http://whoami.k8s.orb.local
 Hostname: whoami-64f6cf779d-hvb8h
 IP: 127.0.0.1
 IP: ::1
@@ -27,12 +27,12 @@ IP: 10.42.0.137
 IP: fe80::38b8:4dff:fe0f:3839
 RemoteAddr: 10.42.0.135:42870
 GET / HTTP/1.1
-Host: whoami.192.168.4.42.sslip.io
+Host: whoami.k8s.orb.local
 User-Agent: curl/8.7.1
 Accept: */*
 Accept-Encoding: gzip
 X-Forwarded-For: 10.42.0.134
-X-Forwarded-Host: whoami.192.168.4.42.sslip.io
+X-Forwarded-Host: whoami.k8s.orb.local
 X-Forwarded-Port: 80
 X-Forwarded-Proto: http
 X-Forwarded-Server: traefik-c98fdf6fb-ltsfs
@@ -44,7 +44,7 @@ verify deploy in k3s
 [0] % kubectl get ingress -n whoami
 
 NAME     CLASS     HOSTS                          ADDRESS        PORTS   AGE
-whoami   traefik   whoami.192.168.4.42.sslip.io   192.168.5.15   80      6m36s
+whoami   traefik   whoami.k8s.orb.local   192.168.139.2   80      6m36s
 
 [0] % kubectl describe ingress whoami -n whoami
 
@@ -55,7 +55,7 @@ Default backend:  <default>
 Rules:
   Host                          Path  Backends
   ----                          ----  --------
-  whoami.192.168.4.42.sslip.io  
+  whoami.k8s.orb.local
                                 /   whoami:80 (10.42.0.137:80,10.42.0.136:80)
 Annotations:                    <none>
 Events:                         <none>
@@ -77,10 +77,10 @@ kubectl delete namespace whoami
 generate and install certificate with mkcert
 
 ```
-mkcert whoami.192.168.4.42.sslip.io
+mkcert whoami.k8s.orb.local
 kubectl -n whoami create secret tls whoami-tls \
-  --cert=whoami.192.168.4.42.sslip.io.pem \
-  --key=whoami.192.168.4.42.sslip.io-key.pem
+  --cert=whoami.k8s.orb.local.pem \
+  --key=whoami.k8s.orb.local-key.pem
 kubectl delete ingress whoami -n whoami
 kubectl apply -f whoami-ingress-tls.yaml
 ```

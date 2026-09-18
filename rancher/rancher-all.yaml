@@ -33,7 +33,7 @@ spec:
   version: 2.13.2
   targetNamespace: cattle-system
   valuesContent: |
-    hostname: rancher.192.168.4.42.sslip.io
+    hostname: rancher.k8s.orb.local
     replicas: 1
     ingress:
       tls:

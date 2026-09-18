@@ -8,10 +8,10 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - whoami.192.168.4.42.sslip.io
+        - whoami.k8s.orb.local
       secretName: whoami-tls
   rules:
-    - host: whoami.192.168.4.42.sslip.io
+    - host: whoami.k8s.orb.local
       http:
         paths:
           - path: /

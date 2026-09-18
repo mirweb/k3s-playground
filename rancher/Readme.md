@@ -49,7 +49,7 @@ kubectl -n cattle-system exec -it "$POD" -- reset-password
 
 open in browser
 ```
-https://rancher.192.168.4.42.sslip.io
+https://rancher.k8s.orb.local
 ```
 
 local access without ingress (port-forward)

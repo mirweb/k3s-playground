@@ -21,7 +21,7 @@ kubectl apply -f portainer-ingress.yaml
 
 open in browser
 ```
-http://portainer.192.168.4.42.sslip.io
+http://portainer.k8s.orb.local
 ```
 
 local access without ingress (port-forward)
@@ -38,7 +38,7 @@ verify deploy in k3s
 [0] % kubectl get ingress -n portainer
 
 NAME       CLASS     HOSTS                              ADDRESS        PORTS   AGE
-portainer  traefik   portainer.192.168.4.42.sslip.io    192.168.5.15   80      6m36s
+portainer  traefik   portainer.k8s.orb.local    192.168.139.2   80      6m36s
 
 [0] % kubectl logs -n portainer -l app=portainer
 ```

@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: portainer.192.168.4.42.sslip.io
+    - host: portainer.k8s.orb.local
       http:
         paths:
           - path: /

@@ -15,7 +15,7 @@ There is no build step; use `kubectl` to apply or remove manifests.
   - `kubectl apply -f whoami/whoami-service.yaml`
   - `kubectl apply -f whoami/whoami-ingress.yaml`
 - Verify: `kubectl get ingress -n whoami`, `kubectl logs -n whoami -l app=whoami`
-- Test request: `curl http://whoami.<ip>.sslip.io`
+- Test request: `curl http://whoami.k8s.orb.local`
 - Tear down: `kubectl delete namespace whoami`
 
 ## Coding Style & Naming Conventions
