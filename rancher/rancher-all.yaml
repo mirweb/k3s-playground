@@ -30,7 +30,7 @@ metadata:
 spec:
   chart: rancher
   repo: https://releases.rancher.com/server-charts/latest
-  version: 2.13.2
+  version: 2.15.1
   targetNamespace: cattle-system
   valuesContent: |
     hostname: rancher.k8s.orb.local

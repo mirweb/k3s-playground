@@ -36,3 +36,4 @@ cluster override instructions.
 - [whoami](whoami/Readme.md)
 - [portainer](portainer/Readme.md)
 - [rancher](rancher/Readme.md)
+- [litellm](litellm/Readme.md)
