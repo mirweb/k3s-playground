@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Add mise configuration for k9s and OpenTofu.
 - Document Rancher admin password reset command.
 - Add basic OrbStack Kubernetes start, stop, and verification commands.
 - Add an OpenTofu bootstrap stack that installs Traefik for OrbStack Kubernetes.
