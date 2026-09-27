@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add an OpenTofu bootstrap stack that installs Traefik for OrbStack Kubernetes.
 - Add an OpenTofu Helm installation path for the Rancher sample.
 - Add a database-backed LiteLLM proxy sample with virtual keys, spend tracking, and Admin UI model management.
+- Add a gemma3-local LiteLLM model route to Ollama on the macOS host.
 ### Changed
 - Note conventional commits requirement in AGENTS guidelines.
 - Pin Rancher HelmChart version to `2.15.1` in `rancher/rancher-helmchart.yaml` and `rancher/rancher-all.yaml`.

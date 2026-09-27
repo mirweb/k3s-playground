@@ -2,9 +2,11 @@
 
 This sample deploys an OpenAI-compatible LiteLLM proxy at
 `http://litellm.k8s.orb.local`, backed by PostgreSQL. It exposes the
-`gpt-5.6-terra` model alias and routes requests to OpenAI. Update
-`litellm-config.yaml` and `litellm-all.yaml` to configure a different provider
-or model.
+`gpt-5.6-terra` model alias through OpenAI and `gemma3-local` through Ollama
+running on the macOS host. The Ollama route uses OrbStack's
+`host.docker.internal:11434`; ensure Ollama is running and `gemma3:1b` is
+installed (`ollama pull gemma3:1b`). Update both `litellm-config.yaml` and
+`litellm-all.yaml` when changing model routes.
 
 The sample requires the repository's Traefik bootstrap. PostgreSQL persists
 Admin UI models, virtual keys, and spend tracking data in a 5-GiB PVC.
@@ -71,6 +73,14 @@ curl http://litellm.k8s.orb.local/v1/chat/completions \
   -H "Authorization: Bearer $LITELLM_MASTER_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model":"gpt-5.6-terra","messages":[{"role":"user","content":"Say hello in five words."}]}'
+```
+
+To use the local Ollama model, change the request model to `gemma3-local`.
+After changing a ConfigMap, restart LiteLLM because the configuration is
+mounted with `subPath`:
+
+```sh
+kubectl rollout restart deployment/litellm -n litellm
 ```
 
 ## Delete sample app
